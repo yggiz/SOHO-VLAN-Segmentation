@@ -1,0 +1,212 @@
+Fri Jul 11 23:21:54 2025   Laptop7   C:\>ipconfig /clear
+Sat Jul 12 00:55:21 2025   Switch4   Switch>en
+Sat Jul 12 00:55:29 2025   Switch4   Switch#sh ip int br
+Sat Jul 12 00:55:38 2025   Switch4   Switch#h vlan br
+Sat Jul 12 00:55:42 2025   Switch4   Switch#sh vlan br
+Sat Jul 12 01:10:43 2025   Switch4   Switch>en
+Sat Jul 12 01:10:47 2025   Switch4   Switch#configure terminal
+Sat Jul 12 01:11:06 2025   Switch4   Switch(config)#hostname SW1
+Sat Jul 12 01:12:00 2025   Switch4   SW1(config)#vlan 10
+Sat Jul 12 01:12:17 2025   Switch4   SW1(config-vlan)#name Admin
+Sat Jul 12 01:12:28 2025   Switch4   SW1(config-vlan)#end
+Sat Jul 12 01:12:40 2025   Switch4   SW1#config term
+Sat Jul 12 01:12:45 2025   Switch4   SW1(config)#vlan 20
+Sat Jul 12 01:12:56 2025   Switch4   SW1(config-vlan)#name Guest
+Sat Jul 12 01:12:59 2025   Switch4   SW1(config-vlan)#end
+Sat Jul 12 01:13:09 2025   Switch4   SW1#show vlan br
+Sat Jul 12 01:15:00 2025   Switch4   SW1#config term
+Sat Jul 12 01:16:37 2025   Switch4   SW1(config)#interface vlan 10
+Sat Jul 12 01:16:54 2025   Switch4   SW1(config-if)#ex
+Sat Jul 12 01:17:15 2025   Switch4   SW1(config)#int range f0/2 - 3
+Sat Jul 12 01:17:22 2025   Switch4   SW1(config-if-range)#switchport mode access
+Sat Jul 12 01:17:30 2025   Switch4   SW1(config-if-range)#vlan 10
+Sat Jul 12 01:17:42 2025   Switch4   SW1(config-vlan)#do sh int br
+Sat Jul 12 01:17:51 2025   Switch4   SW1(config-vlan)#do sh ip int br
+Sat Jul 12 01:19:13 2025   Switch4   SW1(config-vlan)#int range f0/2 - 3
+Sat Jul 12 01:19:28 2025   Switch4   SW1(config-if-range)#switchport access vlan 10
+Sat Jul 12 01:21:36 2025   Switch4   SW1(config-if-range)#end
+Sat Jul 12 01:21:51 2025   Switch4   SW1#sh vtp status
+Sat Jul 12 01:22:16 2025   Switch4   SW1#sh dtp ?
+Sat Jul 12 01:22:18 2025   Switch4   SW1#sh dtp 
+Sat Jul 12 01:22:29 2025   Switch4   SW1#configure term
+Sat Jul 12 01:22:31 2025   Switch4   SW1(config)#dtp?
+Sat Jul 12 01:22:34 2025   Switch4   SW1(config)#dtp ?
+Sat Jul 12 01:22:42 2025   Switch4   SW1(config)#nonegotiate
+Sat Jul 12 01:22:58 2025   Switch4   SW1(config)#end
+Sat Jul 12 01:23:17 2025   Switch4   SW1#sh vlan status
+Sat Jul 12 01:23:21 2025   Switch4   SW1#sh vlan ?
+Sat Jul 12 01:23:30 2025   Switch4   SW1#sh vlan 10
+Sat Jul 12 01:23:36 2025   Switch4   SW1#sh vlan 10 ?
+Sat Jul 12 01:23:42 2025   Switch4   SW1#sh vlan10
+Sat Jul 12 01:23:47 2025   Switch4   SW1#sh vlan ?
+Sat Jul 12 01:23:58 2025   Switch4   SW1#sh vlan id 
+Sat Jul 12 01:24:02 2025   Switch4   SW1#sh vlan id ?
+Sat Jul 12 01:24:08 2025   Switch4   SW1#sh vlan id 10
+Sat Jul 12 01:24:37 2025   Switch4   SW1#sh vlan name Admin
+Sat Jul 12 01:24:41 2025   Switch4   SW1#sh vlan br
+Sat Jul 12 01:24:45 2025   Switch4   SW1#sh vlan
+Sat Jul 12 01:25:47 2025   Switch4   SW1#conf t
+Sat Jul 12 01:26:08 2025   Switch4   SW1(config)#int f0/1
+Sat Jul 12 01:27:17 2025   Switch4   SW1(config-if)#switchport access vlan 20
+Sat Jul 12 01:28:36 2025   Switch4   SW1(config-if)#end
+Sat Jul 12 01:28:44 2025   Switch4   SW1#sh vlan br
+Sat Jul 12 01:28:53 2025   Switch4   SW1#config t
+Sat Jul 12 01:29:06 2025   Switch4   SW1(config)#vlan 99
+Sat Jul 12 01:29:17 2025   Switch4   SW1(config-vlan)#switchport ?
+Sat Jul 12 01:29:48 2025   Switch4   SW1(config-vlan)#switchport?
+Sat Jul 12 01:30:03 2025   Switch4   SW1(config-vlan)#native ?
+Sat Jul 12 01:31:10 2025   Switch4   SW1(config-vlan)#exit
+Sat Jul 12 01:31:25 2025   Switch4   SW1(config)#switchport trunk native vlan 99
+Sat Jul 12 01:31:30 2025   Switch4   SW1(config)#switchport ?
+Sat Jul 12 01:31:35 2025   Switch4   SW1(config)#switchport ?
+Sat Jul 12 01:31:49 2025   Switch4   SW1(config)#vlan 99
+Sat Jul 12 01:31:53 2025   Switch4   SW1(config-vlan)#switchport?
+Sat Jul 12 01:31:56 2025   Switch4   SW1(config-vlan)#switchport ?
+Sat Jul 12 01:32:12 2025   Switch4   SW1(config-vlan)#switchport trunk vlan 99
+Sat Jul 12 01:32:24 2025   Switch4   SW1(config-vlan)#switchport trunk native vlan 99
+Sat Jul 12 01:33:54 2025   Switch4   SW1(config-vlan)#end
+Sat Jul 12 01:35:44 2025   Switch4   SW1#configure terminal
+Sat Jul 12 01:35:48 2025   Switch4   SW1(config)#vlan 99
+Sat Jul 12 01:36:55 2025   Switch4   SW1(config-vlan)#switchport mode trunk
+Sat Jul 12 01:36:58 2025   Switch4   SW1(config-vlan)#switchport ?
+Sat Jul 12 01:44:04 2025   Switch4   SW1(config-vlan)#end
+Sat Jul 12 01:44:15 2025   Switch4   SW1#sh vlan br
+Sat Jul 12 01:44:36 2025   Switch4   SW1#conf t
+Sat Jul 12 01:45:18 2025   Switch4   SW1(config)#int range fa0/4 - 24, Gig0/1 - 2
+Sat Jul 12 01:46:12 2025   Switch4   SW1(config-if-range)#switchport trunk native vlan 99 
+Sat Jul 12 01:52:14 2025   Switch4   SW1(config-if-range)#end
+Sat Jul 12 01:52:26 2025   Switch4   SW1#do sh ip int br
+Sat Jul 12 01:52:31 2025   Switch4   SW1#sh ip int br
+Sat Jul 12 01:53:01 2025   Switch4   SW1#sh vlan br
+Sat Jul 12 01:53:40 2025   Switch4   SW1#sh vlan id 99
+Sat Jul 12 01:53:50 2025   Switch4   SW1#sh vlan 
+Sat Jul 12 01:54:00 2025   Switch4   SW1#sh vlan status
+Sat Jul 12 01:55:06 2025   Switch4   SW1#sh interfaces fa0/4 trunk
+Sat Jul 12 01:55:39 2025   Switch4   SW1#sh interfaces fastEthernet 0/1 trunk
+Sat Jul 12 01:55:42 2025   Switch4   SW1#sh interfaces fastEthernet 0/1 ?
+Sat Jul 12 01:55:51 2025   Switch4   SW1#sh interfaces fastEthernet 0/1 switchport 
+Sat Jul 12 01:56:19 2025   Switch4   SW1#sh interfaces fastEthernet 0/1 switchport  ?
+Sat Jul 12 01:56:27 2025   Switch4   SW1#sh interfaces fastEthernet 0/1 switchport | trunk
+Sat Jul 12 01:59:48 2025   Switch4   SW1#sh interfaces fastEthernet 0/1 ?
+Sat Jul 12 01:59:48 2025   Switch4   SW1#sh interfaces fastEthernet 0/1 
+Sat Jul 12 02:00:02 2025   Switch4   SW1#sh interfaces fastEthernet 0/1 trunk
+Sat Jul 12 02:00:11 2025   Switch4   SW1#sh trunk ?
+Sat Jul 12 02:00:40 2025   Switch4   SW1#show interfaces ?
+Sat Jul 12 02:00:46 2025   Switch4   SW1#show interfaces trunk
+Sat Jul 12 02:00:57 2025   Switch4   SW1#show interfaces switchport 
+Sat Jul 12 02:05:26 2025   Switch4   SW1#xit
+Sat Jul 12 02:16:47 2025   Switch4   SW1>default
+Sat Jul 12 02:21:55 2025   Switch4   SW1>de?
+Sat Jul 12 02:26:13 2025   Switch4   SW1>en
+Sat Jul 12 02:26:22 2025   Switch4   SW1#show interfaces trunk 
+Sat Jul 12 02:33:25 2025   Switch4   SW1#sh vlan br
+Sat Jul 12 02:48:15 2025   Switch4   SW1#conf t
+Sat Jul 12 02:48:43 2025   Switch4   SW1(config)#interface range fa0/4 - 24
+Sat Jul 12 02:48:58 2025   Switch4   SW1(config-if-range)#switchport trunk native vlan 99
+Sat Jul 12 02:49:03 2025   Switch4   SW1(config-if-range)#switchport mode trunk
+Sat Jul 12 02:49:27 2025   Switch4   SW1(config-if-range)#do sh interfaces trunk 
+Sat Jul 12 03:02:55 2025   Switch4   SW1>en
+Sat Jul 12 03:03:09 2025   Switch4   SW1#comf t
+Sat Jul 12 03:03:14 2025   Switch4   SW1#comnf t
+Sat Jul 12 03:03:18 2025   Switch4   SW1#conf t
+Sat Jul 12 03:08:29 2025   Switch4   SW1(config)#int range fa0/4 - 24
+Sat Jul 12 03:08:46 2025   Switch4   SW1(config-if-range)#switchport mode trunk
+Sat Jul 12 03:08:58 2025   Switch4   SW1(config-if-range)#switchport trunk native vlan 99
+Sat Jul 12 03:09:18 2025   Switch4   SW1(config-if-range)#do sh int trunk 
+Sat Jul 12 03:09:39 2025   Switch4   SW1(config-if-range)#no switchport mode trunk 
+Sat Jul 12 03:09:42 2025   Switch4   SW1(config-if-range)#do sh int trunk 
+Sat Jul 12 03:09:46 2025   Switch4   SW1(config-if-range)#no switchport mode trunk 
+Sat Jul 12 03:09:48 2025   Switch4   SW1(config-if-range)#do sh int trunk 
+Sat Jul 12 03:09:57 2025   Switch4   SW1(config-if-range)#switchport mode trunk
+Sat Jul 12 03:10:51 2025   Switch4   SW1(config-if-range)#int range fa0/6 - 24 
+Sat Jul 12 03:11:00 2025   Switch4   SW1(config-if-range)#switchport mode trunk
+Sat Jul 12 03:11:18 2025   Switch4   SW1(config-if-range)#switchport trunk native vlan 99
+Sat Jul 12 03:12:25 2025   Switch4   SW1(config-if-range)#ex
+Sat Jul 12 03:12:35 2025   Switch4   SW1(config)#int range fa0/4 - 5
+Sat Jul 12 03:13:47 2025   Switch4   SW1(config-if-range)#switchport access vlan 180
+Sat Jul 12 03:13:53 2025   Switch4   SW1(config-if-range)#vlan 180
+Sat Jul 12 03:14:02 2025   Switch4   SW1(config-vlan)#name AP
+Sat Jul 12 03:14:06 2025   Switch4   SW1(config-vlan)#vlan 99
+Sat Jul 12 03:14:11 2025   Switch4   SW1(config-vlan)#name Unused
+Sat Jul 12 03:14:19 2025   Switch4   SW1(config-vlan)#do sh int trunk
+Sat Jul 12 03:14:37 2025   Switch4   SW1(config-vlan)#int range fa0/4 -5 
+Sat Jul 12 03:14:44 2025   Switch4   SW1(config-if-range)#no switchport mode trunk
+Sat Jul 12 03:14:48 2025   Switch4   SW1(config-if-range)#do sh int trunk
+Sat Jul 12 03:15:25 2025   Switch4   SW1(config-if-range)#int range fa0/1 - 5, g0/1 - 2
+Sat Jul 12 03:16:50 2025   Switch4   SW1(config-if-range)#end
+Sat Jul 12 03:17:05 2025   Switch4   SW1#sh ip int br
+Sat Jul 12 03:17:33 2025   Switch4   SW1#config term
+Sat Jul 12 03:17:38 2025   Switch4   SW1(config)#no int vlan10
+Sat Jul 12 03:17:56 2025   Switch4   SW1(config)#do sh ip int br
+Sat Jul 12 03:25:54 2025   Main Router   Router>en
+Sat Jul 12 03:26:05 2025   Main Router   Router#hostname R1
+Sat Jul 12 03:26:08 2025   Main Router   Router#conf t
+Sat Jul 12 03:26:14 2025   Main Router   Router(config)#host R1
+Sat Jul 12 03:32:54 2025   Main Router   R1(config)#do sh ip int br
+Sat Jul 12 03:34:42 2025   Main Router   R1(config)#int gig0/0/0
+Sat Jul 12 03:34:57 2025   Main Router   R1(config-if)#do sh int g0/0/0
+Sat Jul 12 03:38:12 2025   Main Router   R1(config-if)#no shutdown
+Sat Jul 12 03:38:37 2025   Main Router   R1(config-if)#int g0/0/1
+Sat Jul 12 03:38:40 2025   Main Router   R1(config-if)#no shutdown
+Sat Jul 12 03:39:08 2025   Main Router   R1(config-if)#do sh ip int br
+Sat Jul 12 03:39:36 2025   Main Router   R1(config-if)#int range g0/1/1 - 3
+Sat Jul 12 03:39:40 2025   Main Router   R1(config-if-range)#shutdown
+Sat Jul 12 03:47:07 2025   Switch4   SW1>conf t
+Sat Jul 12 03:47:09 2025   Switch4   SW1>en
+Sat Jul 12 03:47:11 2025   Switch4   SW1#conf t
+Sat Jul 12 03:47:29 2025   Switch4   SW1(config)#interface fa0/6 - 24
+Sat Jul 12 03:47:34 2025   Switch4   SW1(config)#interface range fa0/6 - 24
+Sat Jul 12 03:47:42 2025   Switch4   SW1(config-if-range)#switchport mode trunk
+Sat Jul 12 03:47:54 2025   Switch4   SW1(config-if-range)#switchport trunk native vlan 99
+Sat Jul 12 03:48:01 2025   Switch4   SW1(config-if-range)#do sh int trunk
+Sat Jul 12 03:49:57 2025   Switch4   SW1(config-if-range)#do sh ip int br
+Sat Jul 12 03:50:07 2025   Switch4   SW1(config-if-range)#do sh int trunk
+Sat Jul 12 03:50:14 2025   Switch4   SW1(config-if-range)#do sh int switchport trunk
+Sat Jul 12 03:50:18 2025   Switch4   SW1(config-if-range)#do sh int switchport 
+Sat Jul 12 03:57:17 2025   Switch4   SW1(config-if-range)#int vlan10
+Sat Jul 12 04:00:12 2025   Switch4   SW1(config-if)#ip address 192.168.10.1 255.255.255.0
+Sat Jul 12 04:00:18 2025   Switch4   SW1(config-if)#int vlan20
+Sat Jul 12 04:00:34 2025   Switch4   SW1(config-if)#ip address 192.168.20.1 255.255.255.0
+Sat Jul 12 04:00:45 2025   Switch4   SW1(config-if)#int vlan180
+Sat Jul 12 04:01:07 2025   Switch4   SW1(config-if)#ip address 192.168.30.1 255.255.255.0
+Sat Jul 12 04:01:53 2025   Switch4   SW1(config-if)#do sh ip int br
+Sat Jul 12 04:04:58 2025   PC2   C:\>ipconfig /ip 192.168.10.2
+Sat Jul 12 04:05:05 2025   PC2   C:\>ipconfig /ip 192.168.10.2 255.255.255.0
+Sat Jul 12 04:05:13 2025   PC2   C:\>ipconfig /ip 192.168.10.2 255.255.255.0
+Sat Jul 12 04:05:25 2025   PC2   C:\>ipconfig /dg 
+Sat Jul 12 04:05:31 2025   PC2   C:\>ipconfig ?
+Sat Jul 12 04:05:40 2025   PC2   C:\>help ipconfig
+Sat Jul 12 04:05:52 2025   PC2   C:\>ipconfig /ip
+Sat Jul 12 04:06:02 2025   PC2   C:\>ipconfig /dg
+Sat Jul 12 04:06:11 2025   PC2   C:\>ipconfig /ip
+Sat Jul 12 04:07:16 2025   Switch4   SW1(config-if)#do sh vlan 
+Sat Jul 12 04:25:56 2025   Switch4   SW1(config-if)#do sh vlan 
+Sat Jul 12 04:38:24 2025   Switch4   SW1(config-if)#no interface vlan10
+Sat Jul 12 04:38:29 2025   Switch4   SW1(config)#no interface vlan20
+Sat Jul 12 04:38:33 2025   Switch4   SW1(config)#no interface vlan180
+Sat Jul 12 04:38:38 2025   Switch4   SW1(config)#do sh ip int br
+Sat Jul 12 04:39:19 2025   Main Router   R1>en
+Sat Jul 12 04:39:22 2025   Main Router   R1#config term
+Sat Jul 12 04:39:33 2025   Main Router   R1(config)#interface fa0/0.10
+Sat Jul 12 04:40:08 2025   Main Router   R1(config)#interface g0/0/1.10
+Sat Jul 12 04:40:19 2025   Main Router   R1(config-subif)#encapsulation dot1q 10
+Sat Jul 12 04:40:44 2025   Main Router   R1(config-subif)#ip address 192.168.10.254 255.255.255.0
+Sat Jul 12 04:40:47 2025   Main Router   R1(config-subif)#exit
+Sat Jul 12 04:41:07 2025   Main Router   R1(config)#interface g0/0/1.20
+Sat Jul 12 04:41:22 2025   Main Router   R1(config-subif)#encapsulation dot1q 20
+Sat Jul 12 04:41:45 2025   Main Router   R1(config-subif)#ip address 192.168.20.254 255.255.255.0
+Sat Jul 12 04:41:48 2025   Main Router   R1(config-subif)#exit
+Sat Jul 12 04:42:21 2025   Main Router   R1(config)#interface g0/0/1.180
+Sat Jul 12 04:42:35 2025   Main Router   R1(config-subif)#encapsulation dot1q 180
+Sat Jul 12 04:42:58 2025   Main Router   R1(config-subif)#ip address 192.168.180.254 255.255.255.0
+Sat Jul 12 04:43:12 2025   Main Router   R1(config-subif)#ip address 192.168.30.254 255.255.255.0
+Sat Jul 12 04:43:26 2025   Main Router   R1(config-subif)#exit
+Sat Jul 12 04:43:41 2025   Main Router   R1(config)#interface g0/0/1.99 
+Sat Jul 12 04:43:52 2025   Main Router   R1(config-subif)#encapsulation dot1q 99
+Sat Jul 12 04:44:02 2025   Main Router   R1(config-subif)#encapsulation dot1q 99 native
+Sat Jul 12 04:44:25 2025   Main Router   R1(config-subif)#ip address 192.168.99.1 255.255.255.0
+Sat Jul 12 04:44:27 2025   Main Router   R1(config-subif)#exit
+Sat Jul 12 04:44:40 2025   Main Router   R1(config)#int g0/0/1
+Sat Jul 12 04:44:43 2025   Main Router   R1(config-if)#no shutdown
+Sat Jul 12 04:45:17 2025   Switch4   SW1(config)#interface vlan 99
+Sat Jul 12 04:45:39 2025   Switch4   SW1(config-if)#ip address 192.168.99.2 255.255.255.0

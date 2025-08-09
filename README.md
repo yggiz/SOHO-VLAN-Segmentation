@@ -1,88 +1,78 @@
-# Secure SOHO Network Lab (Cisco Packet Tracer)
+# SOHO VLAN Segmentation
 
-This lab simulates a **Secure Small Office/Home Office (SOHO)** network built using Cisco Packet Tracer. It was designed as a foundational project to demonstrate core skills in **network segmentation**, **device hardening**, **DHCP configuration**, **basic access control**, and **secure switching practices**, all of which support the career path toward becoming a **Network Security Engineer**.
+### Project Description
+I used Cisco Packet Tracer to build a secure Small Office/Home Office (SOHO) network that demonstrates proper VLAN segmentation, routing, and basic security controls. I designed this lab to practice CCNA-level networking skills and to showcase network design and implementation for prospective employers.
 
-## 🛠️ Lab Objectives
+### Objectives
+- I designed a logically segmented network using VLANs
+- I configured trunking between switches and set up a native VLAN
+- I implemented DHCP for IP address management
+- I applied port security, switch hardening, and SNMP/storm control
+- I established inter-VLAN routing with a router-on-a-stick
 
-- Design a logically segmented network using VLANs
-- Secure Layer 2 infrastructure (switches and access ports)
-- Implement DHCP for IP address management
-- Apply port security and trunk configurations
-- Use SNMP and storm control for basic monitoring and traffic suppression
-- Demonstrate early implementation of security best practices in a simulated environment
+### Skills & Tools Used
+- Cisco Packet Tracer
+- VLAN configuration (10, 20, 180, 99)
+- 802.1Q trunking & native VLAN
+- Router-on-a-Stick configuration
+- DHCP server setup
+- SNMP & storm control
+- Basic ACLs and port security
+- Networking concepts covered in the CCNA
 
----
+### Network Diagram
+![Network Diagram](diagrams/SOHO_Topology.png)
 
-## 📦 Network Overview
+The network consists of four VLANs:
 
-| VLAN | Purpose       | Subnet              | Gateway IP        |
-|------|---------------|---------------------|-------------------|
-| 10   | Admin Devices | 192.168.10.0/24     | 192.168.10.254    |
-| 20   | Guest Network | 192.168.20.0/24     | 192.168.20.254    |
-| 180  | Wireless APs  | 192.168.180.0/24    | 192.168.180.254   |
-| 99   | Native VLAN   | 192.168.99.0/24     | 192.168.99.254    |
+| VLAN | Purpose       | Subnet          | Gateway IP        |
+|------|---------------|-----------------|-------------------|
+| 10   | Admin Devices | 192.168.10.0/24 | 192.168.10.254    |
+| 20   | Guest Network | 192.168.20.0/24 | 192.168.20.254    |
+| 180  | Wireless APs  | 192.168.180.0/24 | 192.168.180.254   |
+| 99   | Native VLAN   | 192.168.99.0/24 | 192.168.99.254    |
 
----
+### Configuration Steps
+```
+# Configure VLANs on SW1
+conf t
+vlan 10
+ name Admin_Devices
+vlan 20
+ name Guest_Network
+vlan 180
+ name Wireless_APs
+vlan 99
+ name Native
 
-## 🔐 Security Measures Implemented
+# Configure trunk port on SW1
+interface Gig0/0/1
+ switchport mode trunk
+ switchport trunk native vlan 99
+ switchport trunk allowed vlan 10,20,180
 
-### ✅ VLAN Segmentation
-- Devices are separated logically into VLANs to reduce broadcast domains and limit lateral movement.
-- VLAN 99 is used as the **native VLAN**, with no user traffic assigned to VLAN 1 (disabled where possible).
+# Router-on-a-Stick subinterfaces on R1
+interface Gig0/0.10
+ encapsulation dot1q 10
+ ip address 192.168.10.254 255.255.255.0
 
-### ✅ Switch Port Security
-- **Access ports** are locked down with `port-security`, using sticky MACs and a maximum of one device.
-- Violation mode set to `restrict` to prevent shutdowns while still logging anomalies.
+interface Gig0/0.20
+ encapsulation dot1q 20
+ ip address 192.168.20.254 255.255.255.0
 
-### ✅ Trunk and Native VLAN Consistency
-- Trunk ports between switch and router are configured with consistent native VLANs to avoid CDP errors.
-- Subinterfaces are used on the router to handle inter-VLAN routing.
+interface Gig0/0.180
+ encapsulation dot1q 180
+ ip address 192.168.180.254 255.255.255.0
+...
+```
 
-### ✅ DHCP Configuration
-- The router is configured to act as a DHCP server, providing IPs per VLAN.
-- Excluded IPs are reserved for infrastructure devices like switches and APs.
+### Results & Testing
+- Verified inter-VLAN routing using ping tests between VLANs via router-on-a-stick.
+- Confirmed DHCP scopes deliver correct IP addresses to devices in each VLAN.
+- Tested port security violations; restricted ports shut down upon violation.
+- Used SNMP and storm control features to monitor network performance and suppress unusual traffic patterns.
 
-### ✅ SNMP (Read-Only)
-- Basic SNMP community string configured (`public` RO) for future integration with network monitoring tools.
-
-### ✅ Storm Control
-- Broadcast, multicast, and unicast storm control applied to mitigate broadcast storms and denial-of-service attacks.
-
-### ✅ Errdisable Recovery Procedures
-- Manual recovery demonstrated for interfaces shut down due to security violations, including removal of sticky MACs.
-
----
-
-## 🧪 Testing & Verification
-
-- Each endpoint was configured to obtain an IP via DHCP.
-- Trunk links tested for native VLAN alignment.
-- Ping tests verified routing across VLANs.
-- Switch logs reviewed for violations and CDP alerts.
-- Port security behavior validated using MAC spoofing and limit testing.
-
----
-
-## 🧭 Future Enhancements
-
-- Apply ACLs to filter inter-VLAN traffic (e.g., restrict Guest access to Admin VLAN)
-- Integrate AAA using RADIUS/TACACS+ for device login control
-- Configure remote logging and syslog export
-- Simulate SNMP trap destinations for alerting
-- Add redundant links with STP (Spanning Tree Protocol)
-
----
-
-## 🧑‍💻 Author
-
-**Ziggy Dolce**  
-Aspiring Network Security Engineer  
-Studying for CompTIA Network+ and Azure/AWS Cloud Security  
-GitHub: Yggiz  
-LinkedIn: https://linkedin.com/in/ziggy-dolce
-
----
-
-## 📝 License
-
-This project is for educational use only
+### Future Improvements
+- Integrate a wireless controller for centralized management.
+- Implement AAA with RADIUS/TACACS for secure authentication.
+- Explore redundant links and STP for higher availability.

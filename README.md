@@ -20,7 +20,7 @@ I used Cisco Packet Tracer to build a secure Small Office/Home Office (SOHO) net
 - Basic ACLs and port security
 - Networking concepts covered in the CCNA
 
-### Network Diagram
+### Network Diagram / Topology
 ![Network Diagram](diagrams/SOHO_Topology.png)
 
 The network consists of four VLANs:
